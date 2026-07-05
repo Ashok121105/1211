@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row align-items-center">
+    <div class="col-lg-6">
+        <h1 class="display-4 fw-bold">AI-Powered Credit Card Approval Prediction System</h1>
+        <p class="lead mt-4">Automating credit decisions using state-of-the-art Machine Learning algorithms.</p>
+        <p>Our intelligent system evaluates financial and demographic information in real-time, reducing manual effort and improving decision-making accuracy.</p>
+        <a href="/predict_page" class="btn btn-primary btn-lg mt-3">Start Prediction</a>
+        <a href="/about" class="btn btn-outline-secondary btn-lg mt-3 ms-2">Learn More</a>
+    </div>
+    <div class="col-lg-6 text-center animate-fade-in">
+        <div class="card p-4" style="background-color: var(--card-bg); border-radius: 15px;">
+            <h4 class="text-light mb-3">Live Prediction Dashboard</h4>
+            <canvas id="predictionChart" width="400" height="300"></canvas>
+            <p class="text-muted mt-3 small">Real-time statistics from SQLite database logs</p>
+        </div>
+    </div>
+</div>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const ctx = document.getElementById('predictionChart').getContext('2d');
+        const approvedCount = {{ approved|default(0) }};
+        const rejectedCount = {{ rejected|default(0) }};
+        
+        // If no data exists yet, show empty state
+        const data = (approvedCount === 0 && rejectedCount === 0) ? [1, 1] : [approvedCount, rejectedCount];
+        const labels = (approvedCount === 0 && rejectedCount === 0) ? ['No Data', 'No Data'] : ['Approved', 'Rejected'];
+        const colors = (approvedCount === 0 && rejectedCount === 0) ? ['#334155', '#334155'] : ['#10b981', '#ef4444'];
+
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: labels,
+                datasets: [{
+                    data: data,
+                    backgroundColor: colors,
+                    borderColor: '#1e293b',
+                    borderWidth: 2,
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { color: '#f8fafc' }
+                    }
+                }
+            }
+        });
+    });
+</script>
+{% endblock %}

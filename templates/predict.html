@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="card p-4">
+            <h3 class="text-center mb-4">Credit Card Eligibility Check</h3>
+            <form action="/predict" method="POST">
+                
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Gender</label>
+                        <select class="form-select" name="Gender" required>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Age</label>
+                        <input type="number" class="form-control" name="Age" min="18" max="100" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Income Type</label>
+                        <select class="form-select" name="Income_Type" required>
+                            <option value="Working">Working</option>
+                            <option value="Commercial associate">Commercial associate</option>
+                            <option value="Pensioner">Pensioner</option>
+                            <option value="State servant">State servant</option>
+                            <option value="Student">Student</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Employment Status</label>
+                        <select class="form-select" name="Employment_Status" required>
+                            <option value="Employed">Employed</option>
+                            <option value="Unemployed">Unemployed</option>
+                            <option value="Self-Employed">Self-Employed</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Annual Income ($)</label>
+                        <input type="number" class="form-control" name="Annual_Income" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Education Level</label>
+                        <select class="form-select" name="Education" required>
+                            <option value="Secondary">Secondary</option>
+                            <option value="Higher education">Higher education</option>
+                            <option value="Incomplete higher">Incomplete higher</option>
+                            <option value="Lower secondary">Lower secondary</option>
+                            <option value="Academic degree">Academic degree</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Marital Status</label>
+                        <select class="form-select" name="Marital_Status" required>
+                            <option value="Married">Married</option>
+                            <option value="Single / not married">Single</option>
+                            <option value="Civil marriage">Civil marriage</option>
+                            <option value="Separated">Separated</option>
+                            <option value="Widow">Widow</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Housing Type</label>
+                        <select class="form-select" name="Housing_Type" required>
+                            <option value="House / apartment">House / apartment</option>
+                            <option value="With parents">With parents</option>
+                            <option value="Municipal apartment">Municipal apartment</option>
+                            <option value="Rented apartment">Rented apartment</option>
+                            <option value="Office apartment">Office apartment</option>
+                            <option value="Co-op apartment">Co-op apartment</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Number of Children</label>
+                        <input type="number" class="form-control" name="Num_Children" min="0" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Employment Duration (Years)</label>
+                        <input type="number" class="form-control" name="Employment_Duration" min="0" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Existing Loan Balance ($)</label>
+                        <input type="number" class="form-control" name="Existing_Loan_Balance" min="0" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Credit History Length (Years)</label>
+                        <input type="number" class="form-control" name="Credit_History_Length" min="0" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Payment Status</label>
+                        <select class="form-select" name="Payment_Status" required>
+                            <option value="1">Good (No missed payments)</option>
+                            <option value="0">Bad (Missed payments)</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Credit Inquiries (Last 6 Months)</label>
+                        <input type="number" class="form-control" name="Credit_Inquiries" min="0" required>
+                    </div>
+                </div>
+
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-primary btn-lg w-100">Predict Approval</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

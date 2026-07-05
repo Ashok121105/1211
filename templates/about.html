@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row animate-fade-in">
+    <div class="col-md-10 offset-md-1">
+        <div class="card p-5 mt-4">
+            <h2 class="text-center mb-4 text-primary">About the Project</h2>
+            
+            <h4 class="mt-4">Problem Statement</h4>
+            <p>Banks and financial institutions receive thousands of credit card applications every day. A significant portion of these are rejected due to factors such as high existing loan balances, insufficient income levels, or excessive credit inquiries. Manually reviewing each application is both time-consuming and highly prone to human error, making it an inefficient process at scale.</p>
+            
+            <h4 class="mt-4">Our Solution</h4>
+            <p>This project automates the credit card approval decision using machine learning. By training a predictive model on historical applicant data, the system evaluates financial and demographic inputs to determine whether an applicant is likely to be approved or rejected just as real banks do.</p>
+            <p>Four classification algorithms were applied during development: Logistic Regression, Random Forest, XGBoost (Gradient Boosting), and Decision Tree. The best-performing model is saved and integrated into this Flask web application.</p>
+
+            <h4 class="mt-4">Use Cases Scenarios</h4>
+            <div class="accordion mt-3" id="useCasesAccordion">
+                <div class="accordion-item bg-dark text-light border-secondary">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button bg-dark text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Scenario 1: Automated Credit Card Application Screening
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#useCasesAccordion">
+                        <div class="accordion-body">
+                            A bank credit analyst enters a new applicant’s financial profile including income type, employment duration, and credit history into the web application. The model returns an instant approval or rejection prediction, enabling the analyst to prioritize applications that require further review.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item bg-dark text-light border-secondary">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed bg-dark text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Scenario 2: High-Risk Applicant Identification and Compliance Review
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#useCasesAccordion">
+                        <div class="accordion-body">
+                            A financial compliance officer uses the platform to batch-screen applicants with past-due loan records. The feature engineering pipeline converts multi-class payment status codes into binary labels, allowing the model to clearly classify high-risk applicants as ineligible for a new credit card.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item bg-dark text-light border-secondary">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed bg-dark text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Scenario 4: Customer Self-Service Credit Card Eligibility Check
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#useCasesAccordion">
+                        <div class="accordion-body">
+                            A prospective customer uses the web application to enter personal and financial details such as income level, employment status, and credit history before submitting a formal credit card application. The system instantly predicts the likelihood of approval, helping the customer understand their eligibility and reducing unnecessary application rejections.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="mt-4">Technologies Used</h4>
+            <ul>
+                <li>Python, Pandas, NumPy, Scikit-learn, XGBoost</li>
+                <li>Flask, HTML, CSS, Bootstrap</li>
+                <li>IBM Watson Machine Learning (Deployment Ready)</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Logs and Databases
+*.log
+predictions.db
+
+# IBM Watson ML (Avoid committing keys if they exist in script)
+# (Assuming actual credentials might be kept in a separate file later)
+credentials.json
+
+# Model files (You might want to commit model.pkl, but ignoring large datasets)
+dataset/credit_card_data.csv
+model/label_encoders.pkl
+model/scaler.pkl
+model/model.pkl
+
+# IDEs
+.vscode/
+.idea/
